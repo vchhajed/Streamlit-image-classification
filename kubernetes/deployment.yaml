@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: image-classification-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: image-classification-app
+  template:
+    metadata:
+      labels:
+        app: image-classification-app
+    spec:
+      containers:
+      - name: image-classification-app
+        image: your-registry/image-classification-app:latest
+        ports:
+        - containerPort: 8501
